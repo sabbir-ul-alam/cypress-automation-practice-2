@@ -11,8 +11,10 @@
             "node"
         ],
         "module": "commonjs",
-        "moduleResolution": "node",
-        "preserveValueImports": false
+        // "moduleResolution": "node",
+        "preserveValueImports": false,
+        "esModuleInterop": true,
+        // "module": "nodenext"
     },
     "include": [
         "**/*.ts",

@@ -11,12 +11,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "latest",
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.15.21",
     "cypress": "^14.3.3",
     "eslint": "^9.27.0",
     "eslint-plugin-cypress": "^4.3.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@cypress/browserify-preprocessor": "latest"
   }
 }
