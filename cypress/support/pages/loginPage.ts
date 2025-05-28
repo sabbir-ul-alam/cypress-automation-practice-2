@@ -1,5 +1,5 @@
 import { HomePage } from "./homePage";
-
+import { SignUpPage } from "./signUpPage";
 class LoginPage {
 
     usernameInputField: string = "#username";

@@ -8,17 +8,21 @@
         "sourceMap": true,
         "types": [
             "cypress",
-            "node"
+            "node",
+            "jquery"
         ],
-        "module": "commonjs",
-        // "moduleResolution": "node",
+        "module": "NodeNext",
+        // "moduleResolution": "NodeNext",
         "preserveValueImports": false,
         "esModuleInterop": true,
-        // "module": "nodenext"
+        // "module": "nodenext",
+        
     },
     "include": [
         "**/*.ts",
         "**/*.js",
-        "../cypress.config.ts"
+        "../cypress.config.ts",
+        "cypress/support/commands.d.ts"
     ]
+    
 }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'cypress'
-import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
+import browserify from "@cypress/browserify-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
-import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
+import { preprendTransformerToOptions } from "@badeball/cypress-cucumber-preprocessor/browserify";
 
 export default defineConfig({
   e2e: {
@@ -11,10 +11,12 @@ export default defineConfig({
 
       on(
         "file:preprocessor",
-        createBundler({
-          plugins: [createEsbuildPlugin(config)],
+        browserify({
+          ...preprendTransformerToOptions(config, browserify.defaultOptions),
+          typescript: require.resolve("typescript"),
         }),
       );
+
 
       return config;
 
