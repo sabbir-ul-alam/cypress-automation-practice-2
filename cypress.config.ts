@@ -22,7 +22,7 @@ export default defineConfig({
 
     },
     // baseUrl: 'http://localhost:3000', // change as needed
-    // specPattern: 'cypress/e2e/**/*.ts'
-    specPattern: '**/*.feature'
+    specPattern: 'cypress/e2e/**/*.ts'
+    // specPattern: '**/*.feature'
   }
 })

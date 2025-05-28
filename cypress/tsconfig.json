@@ -12,7 +12,7 @@
             "jquery"
         ],
         "module": "NodeNext",
-        // "moduleResolution": "NodeNext",
+        "moduleResolution": "NodeNext",
         "preserveValueImports": false,
         "esModuleInterop": true,
         // "module": "nodenext",
