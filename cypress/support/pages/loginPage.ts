@@ -2,7 +2,7 @@ import { BlobOptions } from "buffer";
 import { HomePage } from "./homePage";
 import { SignUpPage } from "./signUpPage";
 export class LoginPage {
-
+    path: string = '/signin'
     usernameInputField: string = "#username";
     passwordInputField: string = "#password";
     remembermeCheckBox: string = "signin-remember-me";
@@ -22,8 +22,12 @@ export class LoginPage {
         cy.get(this.passwordInputField).type(password);
     }
 
-    signIn(username: string, password: string, optional?: { rememberme?: boolean }): HomePage 
-    {
+    clickSignInButton(): HomePage {
+        cy.getByData(this.signinButton).click();
+        return new HomePage();
+    }
+
+    signIn(username: string, password: string, optional?: { rememberme?: boolean }): HomePage {
         this.fillUsername(username);
         this.fillPassword(password);
         if (optional?.rememberme) {
