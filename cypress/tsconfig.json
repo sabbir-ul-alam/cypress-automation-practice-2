@@ -22,7 +22,9 @@
         "**/*.ts",
         "**/*.js",
         "../cypress.config.ts",
-        "cypress/support/commands.d.ts"
+        "cypress/support/commands.d.ts",
+        "cypress/e2e/tests/step_definitions/loginPage_steps.ts"
+, "../cypress-cucumber-preprocessor.config.ts"
     ]
     
 }

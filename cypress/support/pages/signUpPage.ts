@@ -1,3 +1,3 @@
- class SignUpPage{
+export class SignUpPage{
 
 }

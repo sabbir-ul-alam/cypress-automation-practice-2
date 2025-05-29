@@ -7,31 +7,31 @@ export class LoginPage {
     passwordInputField: string = "#password";
     remembermeCheckBox: string = "signin-remember-me";
     signinButton: string = "signin-submit";
-    shouldCheck: boolean = false;
     signUpButton: string = "signup";
 
-    goTo(url: string): void {
-        cy.visit(url)
+    checkRememberme(): void {
+        // cy.getByData(this.remembermeCheckBox).find("input").check(); //it works
+        cy.getByData(this.remembermeCheckBox).click(); // its better as we can tap on the label too also input is inside label
+
     }
 
-    shouldCheckRememberme( val: boolean): void{
-        this.shouldCheck=val;
-    }
-
-    signIn(username: string, password: string): HomePage {
+    signIn(username: string, password: string, optional?:{rememberme?: boolean}): HomePage {
         cy.get(this.usernameInputField).type(username);
         cy.get(this.passwordInputField).type(password);
-        if(this.shouldCheck){
-            // cy.getByData(this.remembermeCheckBox).find("input").check(); //it works
-            cy.getByData(this.remembermeCheckBox).click(); // its better as we can tap on the label too also input is inside label
+        if (optional?.rememberme){
+            this.checkRememberme();
         }
         cy.getByData(this.signinButton).click();
         return new HomePage();
     }
 
-    signUP(): SignUpPage{
+    signUP(): SignUpPage {
         cy.getByData(this.signUpButton).click();
         return new SignUpPage;
+    }
+
+    goTo(url: string): void {
+        cy.visit(url)
     }
 
 
