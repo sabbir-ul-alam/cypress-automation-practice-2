@@ -12,13 +12,21 @@ export class LoginPage {
     checkRememberme(): void {
         // cy.getByData(this.remembermeCheckBox).find("input").check(); //it works
         cy.getByData(this.remembermeCheckBox).click(); // its better as we can tap on the label too also input is inside label
-
     }
 
-    signIn(username: string, password: string, optional?:{rememberme?: boolean}): HomePage {
+    fillUsername(username: string): void {
         cy.get(this.usernameInputField).type(username);
+    }
+
+    fillPassword(password: string): void {
         cy.get(this.passwordInputField).type(password);
-        if (optional?.rememberme){
+    }
+
+    signIn(username: string, password: string, optional?: { rememberme?: boolean }): HomePage 
+    {
+        this.fillUsername(username);
+        this.fillPassword(password);
+        if (optional?.rememberme) {
             this.checkRememberme();
         }
         cy.getByData(this.signinButton).click();
