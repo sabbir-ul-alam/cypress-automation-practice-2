@@ -3,11 +3,12 @@ import { HomePage } from "./homePage";
 import { SignUpPage } from "./signUpPage";
 export class LoginPage {
     path: string = '/signin'
-    usernameInputField: string = "#username";
+    usernameInputField: string = "signin-username";
     passwordInputField: string = "#password";
     remembermeCheckBox: string = "signin-remember-me";
     signinButton: string = "signin-submit";
     signUpButton: string = "signup";
+    signinErrorMessage: string = "signin-error";
 
     checkRememberme(): void {
         // cy.getByData(this.remembermeCheckBox).find("input").check(); //it works
@@ -15,7 +16,7 @@ export class LoginPage {
     }
 
     fillUsername(username: string): void {
-        cy.get(this.usernameInputField).type(username);
+        cy.getByData(this.usernameInputField).type(username);
     }
 
     fillPassword(password: string): void {
@@ -37,13 +38,17 @@ export class LoginPage {
         return new HomePage();
     }
 
-    signUP(): SignUpPage {
+    clicklSignUpButton(): SignUpPage {
         cy.getByData(this.signUpButton).click();
         return new SignUpPage;
     }
 
     goTo(url: string): void {
         cy.visit(url)
+    }
+
+    getUrl(): Cypress.Chainable<string>{
+         return cy.url();
     }
 
 

@@ -6,4 +6,6 @@ export class HomePage{
          return cy.url();
     }
 
+    
+
 }

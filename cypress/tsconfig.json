@@ -9,22 +9,21 @@
         "types": [
             "cypress",
             "node",
-            "jquery"
+            "jquery",
+            "cypress-real-events"
         ],
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "preserveValueImports": false,
         "esModuleInterop": true,
         // "module": "nodenext",
-        
     },
     "include": [
         "**/*.ts",
         "**/*.js",
         "../cypress.config.ts",
         "cypress/support/commands.d.ts",
-        "cypress/e2e/tests/step_definitions/loginPage_steps.ts"
-, "../cypress-cucumber-preprocessor.config.ts"
+        "cypress/e2e/tests/step_definitions/loginPage_steps.ts",
+        "../cypress-cucumber-preprocessor.config.ts"
     ]
-    
 }
