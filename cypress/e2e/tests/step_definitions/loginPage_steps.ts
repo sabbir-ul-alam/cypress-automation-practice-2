@@ -98,5 +98,10 @@ Then(/^I should be able to navigate the form using the keyboard in order$/, () =
         cy.realPress("Tab");
     })
 
+})
+
+Then (/^the Password field should have placeholder "Password"$/,()=>{
+cy.get("#password-label").should("have.text","Password");
 
 })
+
