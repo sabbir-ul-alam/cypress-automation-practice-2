@@ -1,7 +1,8 @@
 import { BlobOptions } from "buffer";
 import { HomePage } from "./homePage";
 import { SignUpPage } from "./signUpPage";
-export class LoginPage {
+import { BasePage } from "./basePage";
+export class LoginPage  extends BasePage{
     path: string = '/signin'
     usernameInputField: string = "signin-username";
     passwordInputField: string = "#password";
@@ -43,9 +44,9 @@ export class LoginPage {
         return new SignUpPage;
     }
 
-    goTo(url: string): void {
-        cy.visit(url)
-    }
+    // goTo(url: string): void {
+    //     cy.visit(url)
+    // }
 
     getUrl(): Cypress.Chainable<string>{
          return cy.url();

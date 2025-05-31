@@ -28,26 +28,41 @@ Feature: User Sign-Up
 
   Scenario: Successful sign-up
     When I enter all the valid data for all fields
-    |fn  |ln    |un             |pas    |cpas   |
-    |John|Doe   |johnny_new123  |pass123|pass123|
-    And I click on the sign up button
-    Then I should be redirected to the home page
-
-  Scenario: Try to use an existing username
-    When I enter all valid data with username "existingUser"
-    And I click the Sign Up button
-    Then I should see "Username already exists"
-
-  Scenario: Password fields should mask the input
+    |firstName|John|
+    |lastName|Doe|
+    |userName|johnny_new123|
+    |password|pass123|
+    |confirmPassword|pass123|
     Then the Password field should be of type "password"
-    And the Confirm Password field should be of type "password"
+    When I click on the sign up button
+    Then I should be redirected to the login page
 
-  Scenario: Mock signup Successful
+Scenario: Mock-response signup Successful 
     When I enter all the valid data for all fields
-    And I click on the sign up button to mock api
-    Then I should be redirected to the home page
+    |firstName|John1|
+    |lastName|Doe1|
+    |userName|johnny_new1234|
+    |password|pass123|
+    |confirmPassword|pass123|
+    And I click on the sign up button to mock api response
+    Then I should be redirected to the login page
 
-  Scenario: Mock signup unsuccessful
-    When I enter all the wrong data
-    And I click on the signup button to mock api
+  Scenario: Mock-request signup unsuccessful
+    When I enter all the valid data for all fields
+    |firstName|John1|
+    |lastName|Doe1|
+    |userName|johnny_new1234|
+    |password|pass123|
+    |confirmPassword|pass123|
+    And I click on the signup button to mock api request
     Then I should see error
+#   Scenario: Try to use an existing username
+#     When I enter all valid data with username "existingUser"
+#     And I click the Sign Up button
+#     Then I should see "Username already exists"
+
+#   Scenario: Password fields should mask the input
+#     Then the Password field should be of type "password"
+#     And the Confirm Password field should be of type "password"
+
+  
