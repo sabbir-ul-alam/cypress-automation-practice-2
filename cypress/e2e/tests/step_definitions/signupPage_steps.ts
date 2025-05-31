@@ -35,7 +35,7 @@ Then(/^I should be redirected to the login page$/, function () {
     this.loginPage.getUrl().should("include", this.loginPage.path);
 })
 
-When(/^I click on the sign up button to mock api$/, function() {
+When(/^I click on the sign up button to mock api response$/, function() {
 
     cy.intercept("POST", 'http://localhost:3001/users', {
         statusCode: 201,
@@ -55,5 +55,23 @@ When(/^I click on the sign up button to mock api$/, function() {
     this.loginPage = signupPage.clickSignUpButton();
     const val = cy.wait('@newUserSignUp');
     console.log(val.its('response'))
+
+})
+
+
+When(/^I click on the signup button to mock api request$/,function(){
+cy.intercept("POST", 'http://localhost:3001/users',function(req){
+    if (req.body.firstName==="John1"){
+        req.body.firstName = 'a';
+        req.body.lastName = 'b';
+        req.body.userName = 'c';
+        req.body.password = 's3cret';
+        req.body.confirmPassword = 's3cret';
+    }
+    req.continue();
+}).as('newUserSignUp');
+
+this.loginPage = signupPage.clickSignUpButton();
+cy.wait("@newUserSignUp");
 
 })

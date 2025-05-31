@@ -47,7 +47,7 @@ Scenario: Mock-response signup Successful
     And I click on the sign up button to mock api response
     Then I should be redirected to the login page
 
-  Scenario: Mock-request signup unsuccessful
+  Scenario: Mock-request signup Successful
     When I enter all the valid data for all fields
     |firstName|John1|
     |lastName|Doe1|
@@ -55,7 +55,7 @@ Scenario: Mock-response signup Successful
     |password|pass123|
     |confirmPassword|pass123|
     And I click on the signup button to mock api request
-    Then I should see error
+    Then I should be redirected to the login page
 #   Scenario: Try to use an existing username
 #     When I enter all valid data with username "existingUser"
 #     And I click the Sign Up button
